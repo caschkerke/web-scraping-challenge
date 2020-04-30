@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Importing Dependencies
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
@@ -13,18 +7,10 @@ import time
 import requests
 import pandas as pd
 
-
-# In[2]:
-
-
 def init_browser():
     
     executable_path = {"executable_path": "geckodriver"}
     return Browser("firefox", **executable_path, headless=True)
-
-
-# In[3]:
-
 
 def scrape():
     
@@ -90,23 +76,11 @@ def scrape():
     hemispheres = {"title": titles, "img_url": hemisphere_image_urls}
     mars_info["hemispheres"] = hemispheres
     
+    browser.quit()
+    
     return mars_info
 
-
-# In[4]:
-
-
-scrape()
-
-
-# In[ ]:
-
-
 # Created and tested individual functions below before combining them within a completed scrape() function above
-
-
-# In[5]:
-
 
 # Scraping latest news article regarding mars
 
@@ -130,9 +104,6 @@ scrape()
 #     return news
 
 
-# In[6]:
-
-
 # Scraping latest featured image data
 
 # def scrape_image():
@@ -154,9 +125,6 @@ scrape()
 #     browser.quit()
     
 #     return featured_image_url
-
-
-# In[7]:
 
 
 # Scraping for latest tweet about weather
@@ -221,9 +189,6 @@ scrape()
 # # I have no clue what to try at this point. API?? don't know how else I can find the tweet..
 
 
-# In[8]:
-
-
 # Scraping mars facts
 
 # def scrape_facts():
@@ -238,10 +203,6 @@ scrape()
 #     mars_html = mars_html.replace("\n", "")
     
 #     return mars_html
-
-
-# In[9]:
-
 
 # Scraping hemisphere data 
 
@@ -272,10 +233,3 @@ scrape()
 #     hemispheres = {"title": titles, "img_url": hemisphere_image_urls}
     
 #     return hemispheres
-
-
-# In[ ]:
-
-
-
-
